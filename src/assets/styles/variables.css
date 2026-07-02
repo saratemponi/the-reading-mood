@@ -1,0 +1,42 @@
+:root {
+  /* Colori base del sito (fuori dai mood) */
+  --color-background: #FAF8F4;
+  --color-text: #1A1A1A;
+
+  /* Tipografia */
+  --font-display: 'Cormorant Garamond', serif;
+  --font-body: 'Inter', sans-serif;
+
+  /* Dimensioni titoli (desktop) */
+  --size-home-title: 6rem;
+  --size-mood-title: 5rem;
+  --size-section-title: 3rem;
+  --size-card-title: 1.8rem;
+  --size-subtitle: 1.3rem;
+  --size-body: 1rem;
+  --size-label: 0.85rem;
+
+  /* Spaziature */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 3rem;
+  --space-xl: 5rem;
+
+  /* Altro */
+  --radius: 12px;
+  --transition: 0.3s ease;
+
+}
+@media (max-width: 768px) {
+  :root {
+    --size-home-title: 3.5rem;
+    --size-mood-title: 2.5rem;
+    --size-section-title: 2rem;
+    --size-card-title: 1.4rem;
+    --size-subtitle: 1.1rem;
+    --space-xl: 2rem;
+    --space-lg: 1.5rem;
+    --space-md: 1rem;
+  }
+}

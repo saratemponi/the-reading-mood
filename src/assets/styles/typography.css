@@ -1,0 +1,37 @@
+body {
+  font-family: var(--font-body);
+  font-size: var(--size-body);
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-background);
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+h1 {
+  font-size: var(--size-home-title);
+}
+
+h2 {
+  font-size: var(--size-section-title);
+}
+
+h3 {
+  font-size: var(--size-card-title);
+}
+
+.subtitle {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--size-subtitle);
+}
+
+button,
+.label {
+  font-family: var(--font-body);
+  font-size: var(--size-label);
+}
