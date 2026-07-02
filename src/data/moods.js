@@ -4,7 +4,7 @@ export const moods = [
     number: '01',
     name: 'Calma',
     tagline: 'Per rallentare il rumore.',
-    image: '/images/moods/calma.png',
+    image: `${import.meta.env.BASE_URL}images/moods/calma.png`,
     description: 'Una selezione pensata per quando hai bisogno di abbassare il volume del mondo. Letture lente, delicate e luminose, capaci di creare spazio tra un pensiero e l\'altro.',
     palette: {
       background: '#E3E9DD',
@@ -19,7 +19,7 @@ export const moods = [
     number: '02',
     name: 'Nostalgia',
     tagline: 'Per tornare dove qualcosa è rimasto.',
-    image: '/images/moods/nostalgia.png',
+    image: `${import.meta.env.BASE_URL}images/moods/nostalgia.png`,
     description: 'Storie che si muovono tra memoria, assenza e ricordi sospesi. Un mood per chi sente il passato riaffiorare come una luce morbida, mai del tutto lontana.',
     palette: {
       background: '#DCE4ED', 
@@ -34,7 +34,7 @@ export const moods = [
     number: '03',
     name: 'Malinconia',
     tagline: 'Per abitare il silenzio.',
-    image: '/images/moods/malinconia.png',  
+    image: `${import.meta.env.BASE_URL}images/moods/malinconia.png`,  
     description: 'Libri intimi e profondi, pensati per quei momenti in cui la tristezza non chiede di essere risolta, ma semplicemente ascoltata. Una lettura che resta sottopelle.',
     palette: {
       background: '#DBD8E3', 
@@ -49,7 +49,7 @@ export const moods = [
     number: '04',
     name: 'Inquietudine',
     tagline: 'Per ciò che non riesce a stare fermo.',
-    image: '/images/moods/inquietudine.png',
+    image: `${import.meta.env.BASE_URL}images/moods/inquietudine.png`,
     description: 'Letture tese, ambigue e magnetiche. Per quando qualcosa dentro si muove senza fare rumore e cerchi una storia capace di trasformare l\'instabilità in attenzione.',
     palette: {
       background: '#181820',
@@ -64,7 +64,7 @@ export const moods = [
   number: '05',
   name: 'Ribellione',
   tagline: 'Per rompere la forma.',
-  image: '/images/moods/ribellione.png',
+  image: `${import.meta.env.BASE_URL}images/moods/ribellione.png`,
   description: '...',
   palette: {
     background: '#E8C5C0',
@@ -79,7 +79,7 @@ export const moods = [
     number: '06',
     name: 'Motivazione',
     tagline: 'Per ritrovare direzione.',
-    image: '/images/moods/motivazione.png',
+    image: `${import.meta.env.BASE_URL}images/moods/motivazione.png`,
     description: 'Storie di movimento, crescita e ripartenza. Letture che accendono energia, lucidità e desiderio di fare, senza perdere profondità e consapevolezza.',
     palette: {
       background: '#F2DDB8',
@@ -94,7 +94,7 @@ export const moods = [
     number: '07',
     name: 'Introspezione',
     tagline: 'Per guardare dentro senza fretta.',
-    image: '/images/moods/introspezione.png',
+    image: `${import.meta.env.BASE_URL}images/moods/introspezione.png`,
     description: 'Un percorso fatto di domande, ombre e dettagli interiori. Libri che invitano a fermarsi, osservare e riconoscere ciò che spesso rimane nascosto sotto la superficie.',
     palette: {
       background: '#DED2C3', 
@@ -109,7 +109,7 @@ export const moods = [
     number: '08',
     name: 'Curiosità',
     tagline: 'Per aprire una porta nuova.',
-    image: '/images/moods/curiosita.png',
+    image: `${import.meta.env.BASE_URL}images/moods/curiosita.png`,
     description: 'Letture vive, sorprendenti e piene di possibilità. Un mood per chi vuole lasciarsi guidare da domande, mondi inattesi e connessioni che non aveva ancora immaginato.',
     palette: {
       background: '#EDE3B0',
