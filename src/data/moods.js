@@ -65,7 +65,7 @@ export const moods = [
   name: 'Ribellione',
   tagline: 'Per rompere la forma.',
   image: `${import.meta.env.BASE_URL}images/moods/ribellione.png`,
-  description: '...',
+  description: 'Libri che sfidano regole, aspettative e percorsi già scritti. Un mood per chi cerca parole più taglienti, personaggi scomodi e storie che non chiedono il permesso.',
   palette: {
     background: '#E8C5C0',
     primary: '#1F1F1F',

@@ -21,6 +21,7 @@
   :centered-slides="true"
   :pagination="{ clickable: true }"
   :navigation="{ prevEl: '.nav-prev', nextEl: '.nav-next' }"
+  :initial-slide="initialSlide"
   :breakpoints="{
     768: { slidesPerView: 3, spaceBetween: 30 }
   }"
@@ -48,9 +49,12 @@ import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 import { moods } from '../data/moods.js'
 import MoodCard from '../components/MoodCard.vue'
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 
 const swiperInstance = ref(null)
+
+const savedMoodIndex = localStorage.getItem('lastMoodIndex')
+const initialSlide = savedMoodIndex !== null ? parseInt(savedMoodIndex) : 0
 
 function onSwiper(swiper) {
   swiperInstance.value = swiper
@@ -207,4 +211,3 @@ function onWheel(e) {
   }
 }
 </style>
-

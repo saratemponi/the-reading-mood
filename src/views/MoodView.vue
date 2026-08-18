@@ -12,6 +12,7 @@
   >
     <div class="mood-layout">
       <div class="mood-left">
+        <RouterLink to="/" class="back-link">← Tutti i mood</RouterLink>
         <span class="mood-number">{{ mood.number }} / 08</span>
         <h1>{{ mood.name }}</h1>
         <p class="tagline">{{ mood.tagline }}</p>
@@ -26,13 +27,13 @@
         </section>
 
         <button
-  v-if="selectedSeason && selectedGenre"
-  type="button"
-  class="btn-primary find-button"
-  @click="goToResult"
->
-  Find my reading
-</button>
+          v-if="selectedSeason && selectedGenre"
+          type="button"
+          class="btn-primary find-button"
+          @click="goToResult"
+        >
+          Find my reading
+        </button>
       </div>
 
       <div class="mood-right">
@@ -53,7 +54,7 @@
 
 <script setup>
 import { useRoute, useRouter } from 'vue-router'
-import { computed, ref } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { moods } from '../data/moods.js'
 import SeasonSelector from '../components/SeasonSelector.vue'
 import GenreSelector from '../components/GenreSelector.vue'
@@ -61,9 +62,13 @@ import GenreSelector from '../components/GenreSelector.vue'
 const route = useRoute()
 const router = useRouter()
 
-const mood = computed(() => {
-  return moods.find(m => m.id === route.params.id)
-})
+const mood = computed(() => moods.find(m => m.id === route.params.id))
+
+watch(mood, (newMood) => {
+  if (newMood) {
+    localStorage.setItem('lastMoodIndex', moods.indexOf(newMood))
+  }
+}, { immediate: true })
 
 const selectedSeason = ref(null)
 const selectedGenre = ref(null)
@@ -152,9 +157,9 @@ function goToResult() {
   opacity: 0.6;
 }
 
-
 .find-button {
   margin-top: 2rem;
+  width: fit-content;
 }
 
 .find-button:hover {
@@ -201,5 +206,20 @@ function goToResult() {
   .mood-page h1 {
     font-size: 3rem;
   }
+}
+
+.back-link {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: var(--mood-text);
+  opacity: 0.6;
+  margin-bottom: 1.5rem;
+  text-decoration: none;
+  transition: opacity var(--transition);
+}
+
+.back-link:hover {
+  opacity: 1;
 }
 </style>

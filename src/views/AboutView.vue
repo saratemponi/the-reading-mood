@@ -5,10 +5,55 @@
       <div class="about-intro">
         <h1>About</h1>
         <p class="about-lead">
-          The Reading Mood è un sito interattivo che consiglia un libro e una playlist
-          in base al tuo stato d'animo. Perché la scelta di una lettura non dipende
-          solo dal genere, ma da come ti senti in questo momento.
+          The Reading Mood nasce da una domanda semplice: e se la scelta di un libro
+          dipendesse non solo dal genere, ma da come ti senti in questo momento?
+          Un progetto che unisce libri, emozioni, colore e musica in un'esperienza
+          web interattiva.
         </p>
+      </div>
+
+      <div class="about-author">
+        <div class="author-content">
+          <h2>Chi sono</h2>
+          <p class="author-name">Sara Temponi</p>
+          <p class="author-bio">
+            Sono Sara, studentessa di Graphic Design e Multimedia.
+            La lettura è sempre stata una delle mie passioni e spesso scelgo cosa leggere
+            non solo in base al genere, ma anche al momento e all'atmosfera che sto cercando.
+            Da questa abitudine nasce The Reading Mood: un progetto che unisce libri, emozioni,
+            colore e musica in un'esperienza web interattiva.
+            Nel mio lavoro cerco un equilibrio tra semplicità, atmosfera e funzionalità,
+            costruendo esperienze visive capaci di comunicare non solo attraverso ciò che
+            mostrano, ma anche attraverso ciò che fanno sentire.
+          </p>
+        </div>
+      </div>
+
+      <div class="about-process">
+        <h2>Come è nato</h2>
+        <div class="process-steps">
+          <div class="process-step">
+            <span class="process-label">Concept</span>
+            <p>Il progetto parte da un'osservazione personale: la scelta di un libro dipende
+            spesso dallo stato d'animo del momento. Da questa idea nasce la struttura dei
+            mood — otto atmosfere emotive, ognuna con la sua palette cromatica, la sua
+            illustrazione e la sua selezione di libri.</p>
+          </div>
+          <div class="process-step">
+            <span class="process-label">Design</span>
+            <p>Prima di scrivere codice, il progetto è stato progettato in Figma con un sistema
+            di variabili, componenti e varianti che rispecchia la struttura Vue.
+            Lo stile è minimal editoriale: Cormorant Garamond per i titoli,
+            Inter per testi e interfaccia, palette dinamiche per ogni mood.</p>
+          </div>
+          <div class="process-step">
+            <span class="process-label">Sviluppo</span>
+            <p>Il sito è stato sviluppato con Vue 3 e Vite, usando routing dinamico,
+            componenti riutilizzabili, props ed eventi. I dati di 192 libri — uno per ogni
+            combinazione di mood, stagione e genere — sono organizzati in file JavaScript locali.
+            Lo slider è realizzato con Swiper, le animazioni con CSS puro.</p>
+          </div>
+        </div>
       </div>
 
       <div class="about-steps">
@@ -49,18 +94,6 @@
         </div>
       </div>
 
-      <div class="about-bottom">
-        <div class="about-section">
-          <h2>Design</h2>
-          <p>Stile minimal editoriale, progettato in Figma con un sistema di componenti e variabili che rispecchia la struttura Vue. Tipografia: Cormorant Garamond per i titoli, Inter per testi e interfaccia.</p>
-        </div>
-
-        <div class="about-section">
-          <h2>Tecnologia</h2>
-          <p>Vue 3, Vite, Vue Router, Swiper. Dati organizzati in file JavaScript locali. CSS personalizzato con variabili dinamiche per le palette dei mood.</p>
-        </div>
-      </div>
-
     </div>
   </main>
 </template>
@@ -81,7 +114,7 @@ import { moods } from '../data/moods.js'
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  gap: 5rem;
 }
 
 /* Intro */
@@ -95,14 +128,15 @@ import { moods } from '../data/moods.js'
   font-family: var(--font-body);
   font-size: 1.1rem;
   line-height: 1.75;
-  max-width: 620px;
+  max-width: 680px;
   opacity: 0.85;
 }
 
 /* Titoli sezione */
+.about-author h2,
+.about-process h2,
 .about-steps h2,
-.about-moods h2,
-.about-section h2 {
+.about-moods h2 {
   font-family: var(--font-body);
   font-size: 0.75rem;
   font-weight: 600;
@@ -110,6 +144,53 @@ import { moods } from '../data/moods.js'
   letter-spacing: 0.1em;
   opacity: 0.5;
   margin-bottom: 1.5rem;
+}
+
+/* Autore */
+.author-content {
+  max-width: 680px;
+}
+
+.author-name {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  line-height: 1;
+}
+
+.author-bio {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.75;
+  opacity: 0.8;
+}
+
+/* Processo */
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+}
+
+.process-step {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+.process-label {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.process-step p {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  line-height: 1.7;
+  opacity: 0.75;
 }
 
 /* Steps */
@@ -184,24 +265,13 @@ import { moods } from '../data/moods.js'
   line-height: 1.4;
 }
 
-/* Bottom */
-.about-bottom {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  padding-top: 1rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
-}
-
-.about-section p {
-  font-family: var(--font-body);
-  font-size: 0.9rem;
-  line-height: 1.65;
-  opacity: 0.75;
-}
-
 /* Responsive */
 @media (max-width: 768px) {
+  .process-steps {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
   .steps {
     grid-template-columns: 1fr;
     gap: 1.5rem;
@@ -209,11 +279,6 @@ import { moods } from '../data/moods.js'
 
   .mood-grid {
     grid-template-columns: repeat(2, 1fr);
-  }
-
-  .about-bottom {
-    grid-template-columns: 1fr;
-    gap: 2rem;
   }
 
   .about-intro h1 {

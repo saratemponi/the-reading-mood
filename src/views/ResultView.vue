@@ -29,14 +29,17 @@
           </div>
         </div>
 
-        <div class="actions">
-          <button type="button" class="btn-primary" @click="startAgain">
-            Start again
-          </button>
-          <RouterLink :to="`/mood/${route.query.mood}`" class="btn-secondary">
-            Change mood
-          </RouterLink>
-        </div>
+<div class="actions">
+  <button type="button" class="btn-primary" @click="startAgain">
+    Start again
+  </button>
+  <button type="button" class="btn-secondary" @click="changeMood">
+    Cambia mood
+  </button>
+  <button type="button" class="btn-secondary" @click="changeChoices">
+    Cambia scelte
+  </button>
+</div>
       </div>
 
     </div>
@@ -58,31 +61,39 @@ import { moods } from '../data/moods.js'
 const route = useRoute()
 const router = useRouter()
 
-const book = computed(() => {
-  return findBook(route.query.mood, route.query.season, route.query.genre)
-})
+const book = computed(() =>
+  findBook(route.query.mood, route.query.season, route.query.genre)
+)
 
-const playlist = computed(() => {
-  if (!book.value) return null
-  return playlists.find(p => p.id === book.value.playlistId)
-})
+const currentMood = computed(() =>
+  moods.find(mood => mood.id === route.query.mood)
+)
 
-const currentMood = computed(() => {
-  return moods.find(m => m.id === route.query.mood)
-})
+const playlist = computed(() =>
+  playlists.find(p => p.mood === route.query.mood)
+)
 
 const moodStyle = computed(() => {
   if (!currentMood.value) return {}
+  const { background, accent, soft, text } = currentMood.value.palette
   return {
-    '--mood-background': currentMood.value.palette.background,
-    '--mood-accent': currentMood.value.palette.accent,
-    '--mood-soft': currentMood.value.palette.soft,
-    '--mood-text': currentMood.value.palette.text
+    '--mood-background': background,
+    '--mood-accent': accent,
+    '--mood-soft': soft,
+    '--mood-text': text
   }
 })
 
 function startAgain() {
   router.push('/')
+}
+
+function changeMood() {
+  router.push('/')
+}
+
+function changeChoices() {
+  router.push(`/mood/${route.query.mood}`)
 }
 </script>
 
@@ -98,9 +109,10 @@ function startAgain() {
   display: grid;
   grid-template-columns: auto 1fr;
   gap: 4rem;
-  align-items: start;
+  align-items: center;
   max-width: 1000px;
   margin: 0 auto;
+  min-height: calc(100vh - 9rem);
 }
 
 /* Copertina */
@@ -226,7 +238,8 @@ function startAgain() {
 /* Bottoni */
 .actions {
   display: flex;
-  gap: 1rem;
+  flex-wrap: wrap;
+  gap: 0.8rem;
   align-items: center;
 }
 
@@ -261,8 +274,9 @@ function startAgain() {
 }
 
 .btn-secondary:hover {
-  background-color: currentColor;
-  color: var(--mood-background, #fff);
+  background-color: var(--color-text);
+  color: var(--color-background);
+  opacity: 1;
 }
 
 /* Animazioni */

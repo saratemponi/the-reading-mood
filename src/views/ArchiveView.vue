@@ -74,7 +74,10 @@
               :book="book"
             />
           </div>
-          <div class="shelf-plank"></div>
+          <div class="shelf-plank">
+            <div class="shelf-plank-top"></div>
+            <div class="shelf-plank-shadow"></div>
+          </div>
         </div>
       </div>
     </div>
@@ -94,7 +97,7 @@ const selectedGenre = ref('')
 const selectedSeason = ref('')
 const searchQuery = ref('')
 
-const BOOKS_PER_SHELF = 5
+const BOOKS_PER_SHELF = 6
 
 const filteredBooks = computed(() => {
   return books.filter(book => {
@@ -127,7 +130,7 @@ function resetFilters() {
 <style scoped>
 .archive {
   height: 100vh;
-  padding: 7rem var(--space-md) 1.5rem var(--space-md);
+  padding: 7rem var(--space-md) 0 var(--space-md);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -150,13 +153,12 @@ function resetFilters() {
   margin-top: 0.2rem;
 }
 
-/* Controlli */
 .archive-controls {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
   gap: 1.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   flex-shrink: 0;
 }
 
@@ -198,7 +200,6 @@ function resetFilters() {
   border-color: rgba(0,0,0,0.4);
 }
 
-/* Ricerca */
 .search-reset {
   display: flex;
   align-items: center;
@@ -240,7 +241,7 @@ function resetFilters() {
 .shelves-wrapper {
   flex: 1;
   overflow-y: auto;
-  padding-right: 0.5rem;
+  padding-bottom: 1rem;
 }
 
 .shelves-wrapper::-webkit-scrollbar {
@@ -259,6 +260,7 @@ function resetFilters() {
 .shelves {
   display: flex;
   flex-direction: column;
+  gap: 0;
 }
 
 .shelf {
@@ -268,19 +270,27 @@ function resetFilters() {
 
 .shelf-books {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 1rem;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1.2rem;
   align-items: flex-end;
-  padding: 1.2rem 0.5rem 0 0.5rem;
+  padding: 1.5rem 0.5rem 0 0.5rem;
 }
 
 .shelf-plank {
-  height: 10px;
-  background: linear-gradient(180deg, #D4B896 0%, #B8956A 50%, #9E7A52 100%);
-  border-radius: 2px;
-  margin: 0 0.3rem;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12);
-  opacity: 0.7;
+  margin: 0.4rem 0 0 0;
+}
+
+.shelf-plank-top {
+  height: 8px;
+  background: linear-gradient(180deg, #E8D5B8 0%, #D4B896 60%, #C4A07A 100%);
+  border-radius: 2px 2px 0 0;
+  box-shadow: 0 -1px 0 rgba(255,255,255,0.4) inset;
+}
+
+.shelf-plank-shadow {
+  height: 6px;
+  background: linear-gradient(180deg, rgba(0,0,0,0.12) 0%, transparent 100%);
+  margin-bottom: 1.5rem;
 }
 
 .empty {
